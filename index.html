@@ -138,10 +138,10 @@
   .card h3{ font-family:'Poppins',sans-serif; font-size:16.5px; font-weight:600; color:#fff; margin-bottom:8px; }
   .card p{ color:var(--muted); font-size:13.5px; line-height:1.55; }
 
-  /* Role bands */
+/* Role bands */
   .role-band{
-    display:grid; grid-template-columns:250px 1fr; gap:32px;
-    padding:30px 0; border-bottom:1px solid var(--line); align-items:start;
+    display:grid; grid-template-columns:220px 1fr 320px; gap:32px;
+    padding:40px 0; border-bottom:1px solid var(--line); align-items:center;
   }
   .role-band:last-child{ border-bottom:none; }
   .role-name{ font-family:'Poppins',sans-serif; font-size:21px; font-weight:700; color:#fff; }
@@ -152,6 +152,26 @@
   .role-list li{ list-style:none; padding:7px 0 7px 22px; position:relative; color:var(--muted); font-size:14.5px; }
   .role-list li .dot{ position:absolute; left:0; top:13px; }
   .role-list li b{ color:var(--ink); font-weight:600; }
+
+  /* Screenshot delle dashboard */
+  .role-img-wrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .role-img-wrapper:hover {
+    transform: scale(1.03);
+    border-color: var(--muted);
+  }
+  .role-img-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
 
   /* Workflow */
   .flow{ display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; }
@@ -600,7 +620,12 @@
           <li><span class="dot b"></span>Pianificazione e modifica del <b>calendario lezioni</b> per tutti i docenti</li>
           <li><span class="dot b"></span>Attivazione degli <b>accessi al portale</b> per le famiglie</li>
         </ul>
+        <!-- Spazio per lo screenshot Segreteria (lascia un div vuoto per mantenere la struttura a griglia) -->
+        <div class="role-img-wrapper">
+            <img src="Screenshot_Gestore.png" alt="Dashboard Segreteria PentamiX" loading="lazy">
+          </div>
       </div>
+
       <div class="role-band">
         <div class="role-name">Docenti<span class="who">Insegnanti</span></div>
         <ul class="role-list">
@@ -609,7 +634,12 @@
           <li><span class="dot o"></span>Statistiche immediate su lezioni <b>svolte e da recuperare</b></li>
           <li><span class="dot o"></span>Stampa dell'<b>orario settimanale</b> in PDF</li>
         </ul>
+        <!-- Spazio per lo screenshot Docenti -->
+        <div class="role-img-wrapper">
+            <img src="Screenshot_Docenti.png" alt="Dashboard Docenti PentamiX" loading="lazy">
+          </div>
       </div>
+
       <div class="role-band">
         <div class="role-name">Famiglie<span class="who">Alunni</span></div>
         <ul class="role-list">
@@ -618,6 +648,10 @@
           <li><span class="dot m"></span>Caricamento di <b>scheda di iscrizione e liberatorie</b> da mobile</li>
           <li><span class="dot m"></span>Avvisi automatici sui <b>documenti mancanti</b></li>
         </ul>
+        <!-- Screenshot Alunni Attivo -->
+        <div class="role-img-wrapper">
+          <img src="Screenshot_Alunni.png" alt="Dashboard Famiglie PentamiX" loading="lazy">
+        </div>
       </div>
     </div>
   </section>
