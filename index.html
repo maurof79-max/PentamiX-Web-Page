@@ -64,6 +64,73 @@
     padding:10px 20px; border-radius:999px; text-decoration:none;
   }
 
+  /* ---------- DEMO BOX ---------- */
+  .demo-box {
+    margin-top: 40px;
+    padding: 24px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    max-width: 520px;
+  }
+  .demo-box h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .demo-box p.demo-sub {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+  .demo-creds {
+    background: rgba(0,0,0,0.4);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 18px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .demo-creds .cred-row { 
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 6px; 
+    align-items: center;
+  }
+  .demo-creds .cred-row:last-child { margin-bottom: 0; }
+  .demo-creds strong { color: #fff; font-family: monospace; font-size: 15px; }
+  .btn-demo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px;
+    background: rgba(47,134,201,.15);
+    color: var(--blue);
+    border: 1px solid var(--blue);
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .btn-demo:hover {
+    background: var(--blue);
+    color: #fff;
+  }
+  .demo-note {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 14px;
+    text-align: center;
+    font-style: italic;
+  }
+
   /* ---------- HERO ---------- */
   header.hero{
     padding:36px 0 70px 0;
@@ -87,9 +154,10 @@
   .btn{
     padding:14px 26px; border-radius:999px; font-size:14px; font-weight:600;
     text-decoration:none; display:inline-flex; align-items:center; gap:10px; border:1.5px solid transparent;
-    cursor:pointer; background:none; color:inherit;
+    cursor:pointer; background:none; color:inherit; transition: all 0.2s ease;
   }
   .btn-primary{ background:var(--orange); color:#0a0a0f; box-shadow:0 10px 24px -10px rgba(242,135,31,.55); }
+  .btn-primary:hover{ transform: translateY(-1px); background: #f3973a;}
   .btn-ghost{ border-color:var(--line); color:#fff; background:transparent; }
   .btn-ghost:hover{ background:rgba(255,255,255,0.05); }
 
@@ -443,7 +511,7 @@
 <div class="wrap">
   <nav class="nav">
     <div class="brand">
-      <img src="PentamiX_logo.png" alt="PentamiX">
+      <img src="https://mqdpojtisighqjmyzdwz.supabase.co/storage/v1/object/public/images/PentamiX_logo.png" alt="PentamiX">
       <span>PentamiX</span>
     </div>
     <div class="nav-actions">
@@ -461,10 +529,33 @@
         <a class="btn btn-primary" href="#contactModal" onclick="openModal();return false;">Richiedi una demo</a>
         <a class="btn btn-ghost" href="#funzioni">Scopri le funzionalità</a>
       </div>
+
+      <!-- INIZIO NUOVA SEZIONE DEMO -->
+      <div class="demo-box">
+        <h3>
+          <span class="dot b"></span> Prova subito PentamiX
+        </h3>
+        <p class="demo-sub">
+          Accedi all'ambiente di test e tocca con mano tutte le funzionalità del gestionale.
+        </p>
+        <div class="demo-creds">
+          <div class="cred-row"><span>Utente / Email:</span> <strong>demo@pentamix.it</strong></div>
+          <div class="cred-row"><span>Password:</span> <strong>pentamixdemo</strong></div>
+        </div>
+        <a href="https://pentamix.pages.dev" target="_blank" rel="noopener noreferrer" class="btn-demo">
+          Accedi all'Ambiente di Test
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <div class="demo-note">
+          * L'ambiente è condiviso e i dati inseriti vengono ripristinati automaticamente ogni ora.
+        </div>
+      </div>
+      <!-- FINE NUOVA SEZIONE DEMO -->
+
     </div>
     <div class="hero-art">
       <div class="glow"></div>
-      <img src="PentamiX_logo.png" alt="Logo PentamiX">
+      <img src="https://mqdpojtisighqjmyzdwz.supabase.co/storage/v1/object/public/images/PentamiX_logo.png" alt="Logo PentamiX">
     </div>
   </header>
 
