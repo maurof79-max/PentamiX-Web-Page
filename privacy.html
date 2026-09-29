@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — PentamiX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#060608;
+      --paper:#111119;
+      --paper2:#15151f;
+      --line:#26263a;
+      --ink:#f3f2fa;
+      --muted:#9a9ab8;
+      --blue:#2f86c9;
+      --orange:#f2871f;
+      --magenta:#b8399e;
+    }
+    *{box-sizing:border-box; margin:0; padding:0;}
+    body{
+      background:var(--bg);
+      color:var(--ink);
+      font-family:'Inter', 'Helvetica Neue', Arial, sans-serif;
+      line-height:1.55;
+      -webkit-font-smoothing:antialiased;
+      position:relative;
+    }
+    .display{ font-family:'Poppins', 'Helvetica Neue', Arial, sans-serif; }
+    .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+
+    .grad-text{
+      background:linear-gradient(90deg, var(--blue), var(--orange) 55%, var(--magenta));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .dot{ width:9px; height:9px; border-radius:50%; display:inline-block; flex-shrink:0; }
+    .dot.b{background:var(--blue);} .dot.o{background:var(--orange);} .dot.m{background:var(--magenta);}
+
+    /* ---------- NAV ---------- */
+    .nav{ display:flex; align-items:center; justify-content:space-between; padding:24px 0; flex-wrap:wrap; gap:12px; }
+    .brand{ display:flex; align-items:center; gap:12px; text-decoration: none;}
+    .brand img{ height:40px; width:auto; display:block; border-radius:8px; }
+    .brand span{ font-family:'Poppins',sans-serif; font-weight:700; font-size:19px; color:#fff; }
+    
+    .nav-actions{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+    .nav a.btn-nav{
+      font-size:13px; font-weight:600; color:#fff; background:var(--line);
+      padding:10px 20px; border-radius:999px; text-decoration:none; transition: background 0.2s;
+    }
+    .nav a.btn-nav:hover{ background: #3a3a52; }
+
+    /* ---------- PRIVACY CONTENT ---------- */
+    .privacy-container {
+      max-width: 800px;
+      margin: 60px auto 100px auto;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 40px 48px;
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+    }
+    
+    .privacy-header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+
+    .privacy-header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .privacy-header p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .privacy-content h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+      margin-top: 36px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .privacy-content p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+
+    .privacy-content ul {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 20px;
+      padding-left: 20px;
+      line-height: 1.7;
+    }
+
+    .privacy-content li {
+      margin-bottom: 8px;
+    }
+
+    .privacy-content strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .privacy-content a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    .privacy-content a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer{ padding: 20px 0; text-align: center; border-top: 1px solid var(--line); margin-top: 40px; }
+    footer p.note{ color:#6f6f8c; font-size:12.5px; }
+
+    @media (max-width:820px){
+      .nav{ flex-direction:column; align-items:stretch; }
+      .nav-actions{ justify-content:center; margin-top: 10px;}
+      .privacy-container { padding: 30px 24px; margin: 30px auto 60px auto;}
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <img src="https://mqdpojtisighqjmyzdwz.supabase.co/storage/v1/object/public/images/PentamiX_logo.png" alt="PentamiX">
+      <span>PentamiX</span>
+    </a>
+    <div class="nav-actions">
+      <a class="btn-nav" href="index.html">&larr; Torna alla Home</a>
+    </div>
+  </nav>
+
+  <!-- PRIVACY POLICY CONTENT -->
+  <main class="privacy-container">
+    <div class="privacy-header">
+      <span class="dot m" style="margin-bottom: 12px;"></span>
+      <h1>Informativa sulla Privacy</h1>
+      <p>Ultimo aggiornamento: <span id="current-date">Ottobre 2026</span></p>
+    </div>
+
+    <div class="privacy-content">
+      <p>La presente Informativa sulla Privacy descrive come <strong>PentamiX</strong> (di seguito "noi", "nostro" o "l'App") raccoglie, utilizza e condivide le informazioni personali degli utenti (docenti, alunni, genitori e personale amministrativo) che utilizzano l'applicazione mobile e la piattaforma web.</p>
+
+      <h2><span class="dot b"></span> 1. Quali dati raccogliamo</h2>
+      <p>Per garantire il corretto funzionamento del gestionale, raccogliamo e gestiamo le seguenti tipologie di Dati Personali fornite direttamente dalla tua scuola / accademia o inserite da te:</p>
+      <ul>
+        <li><strong>Informazioni di base e Contatti:</strong> Nome, Cognome, Indirizzo Email, Numero di Telefono, Indirizzo di residenza.</li>
+        <li><strong>Dati Amministrativi e Fiscali:</strong> Codice Fiscale, Partita IVA, Luogo e Data di Nascita (utilizzati esclusivamente per finalità di segreteria, tesseramento e generazione di ricevute/compensi).</li>
+        <li><strong>Dati di Autenticazione:</strong> Indirizzo email e credenziali di accesso crittografate (es. Numero Tessera usato come password provvisoria).</li>
+        <li><strong>Dati di Utilizzo:</strong> Log di accesso alla piattaforma (inclusi indirizzo IP, data e ora del login e dispositivo utilizzato) per ragioni di sicurezza e auditing interno.</li>
+        <li><strong>Dati Didattici:</strong> Frequenza alle lezioni, voti, note dei docenti, prenotazioni e storico pagamenti/compensi.</li>
+      </ul>
+
+      <h2><span class="dot o"></span> 2. Come utilizziamo i tuoi dati (Finalità)</h2>
+      <p>I dati raccolti vengono utilizzati esclusivamente per le seguenti finalità legate alla fornitura del servizio ("App Functionality"):</p>
+      <ul>
+        <li><strong>Erogazione del servizio:</strong> Gestione del calendario didattico, prenotazioni, registro presenze e calcolo delle tariffe/pacchetti.</li>
+        <li><strong>Autenticazione:</strong> Consentire l'accesso sicuro all'area riservata (Docente o Alunno/Famiglia).</li>
+        <li><strong>Comunicazioni:</strong> Invio di notifiche di sistema, promemoria lezioni, avvisi amministrativi e reset password.</li>
+        <li><strong>Sicurezza e Protezione:</strong> Monitoraggio degli accessi per prevenire attività fraudolente o non autorizzate.</li>
+      </ul>
+      <p>Non utilizziamo in <strong>nessun caso</strong> i tuoi dati per finalità di marketing di terze parti, né li vendiamo a soggetti esterni.</p>
+
+      <h2><span class="dot m"></span> 3. Condivisione dei dati con Terze Parti</h2>
+      <p>I tuoi dati sono custoditi su infrastrutture cloud sicure. Condividiamo le informazioni solo con fornitori di servizi terzi strettamente necessari per il funzionamento tecnico dell'app:</p>
+      <ul>
+        <li><strong>Supabase / PostgreSQL:</strong> Utilizzato come database in cloud e provider di autenticazione per l'archiviazione sicura dei dati e la gestione delle identità. I dati sono ospitati su server sicuri con crittografia at-rest e in-transit.</li>
+        <li><strong>Brevo (ex Sendinblue):</strong> Utilizzato esclusivamente come servizio transazionale per l'invio delle email di sistema (es. benvenuto, reset password, promemoria).</li>
+        <li><strong>Apple / Google:</strong> I dati tecnici (es. crash report) potrebbero essere gestiti tramite i servizi di distribuzione degli store digitali.</li>
+      </ul>
+
+      <h2><span class="dot b"></span> 4. Conservazione dei dati e Cancellazione (Data Retention & Deletion)</h2>
+      <p>Conserviamo i tuoi Dati Personali solo per il tempo strettamente necessario alle finalità indicate, o fino a quando la tua Scuola/Accademia (che agisce come Titolare del Trattamento dei tuoi dati in ambito amministrativo) non ne richieda l'eliminazione.</p>
+      <p><strong>Richiesta di cancellazione:</strong> Puoi richiedere la cancellazione completa del tuo account e dei dati associati in qualsiasi momento rivolgendoti direttamente alla Segreteria della tua accademia (Titolare dei dati), oppure inviandoci una richiesta all'indirizzo email di contatto riportato in fondo a questa pagina. Procederemo alla rimozione dei tuoi dati (fatti salvi eventuali obblighi di conservazione fiscale/legale della tua accademia).</p>
+
+      <h2><span class="dot o"></span> 5. Sicurezza dei dati</h2>
+      <p>Adottiamo misure di sicurezza tecniche e organizzative rigorose (inclusa la crittografia e le policy <em>Row Level Security</em> (RLS) sul database) per proteggere le tue informazioni personali da accesso, alterazione, divulgazione o distruzione non autorizzati.</p>
+
+      <h2><span class="dot m"></span> 6. Diritti dell'utente</h2>
+      <p>Ai sensi della normativa vigente in materia di protezione dei dati (incluso il GDPR in Europa), hai il diritto di:</p>
+      <ul>
+        <li>Accedere ai tuoi Dati Personali.</li>
+        <li>Richiedere la rettifica dei dati inesatti o incompleti.</li>
+        <li>Richiedere la cancellazione dei dati (diritto all'oblio).</li>
+        <li>Opporti al trattamento o richiederne la limitazione.</li>
+      </ul>
+
+      <h2><span class="dot b"></span> 7. Modifiche a questa Informativa</h2>
+      <p>Ci riserviamo il diritto di aggiornare la presente Informativa sulla Privacy in qualsiasi momento. Ti informeremo di eventuali modifiche sostanziali tramite un avviso ben visibile all'interno dell'App o tramite comunicazione via email.</p>
+
+      <h2><span class="dot o"></span> 8. Contatti</h2>
+      <p>In caso di domande, dubbi o per esercitare i tuoi diritti relativi alla privacy, ti preghiamo di contattarci al seguente indirizzo email:</p>
+      <p><strong>Email:</strong> <a href="mailto:maurof79@gmail.com">maurof79@gmail.com</a></p>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="note">© <span id="year">2026</span> PentamiX • Tutti i diritti riservati.</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
