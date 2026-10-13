@@ -171,6 +171,29 @@
   }
   .hero-art img{ position:relative; width:100%; max-width:400px; border-radius:24px; }
 
+  /* ---------- STORE BADGES (non cliccabili, app in test) ---------- */
+  .store-row{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+  .store-badge{
+    display:inline-flex; align-items:center; gap:12px;
+    background:#000; border:1px solid #3a3a52; border-radius:12px;
+    padding:9px 18px 9px 14px; min-width:170px;
+    cursor:default; user-select:none; position:relative;
+    color:#fff; text-decoration:none;
+  }
+  .store-badge svg{ width:28px; height:28px; flex-shrink:0; }
+  .store-badge .st-txt{ display:flex; flex-direction:column; line-height:1.15; text-align:left; }
+  .store-badge .st-txt small{ font-size:10.5px; color:#cfcfe0; letter-spacing:.02em; }
+  .store-badge .st-txt strong{ font-family:'Poppins',sans-serif; font-size:17px; font-weight:600; color:#fff; }
+  .store-soon{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:12px; color:var(--muted); margin-top:12px;
+  }
+  .hero-apps{ margin-top:28px; }
+  .hero-apps .hero-apps-label{
+    font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--muted); margin-bottom:12px; display:flex; align-items:center; gap:8px;
+  }
+
   /* ---------- STAT STRIP ---------- */
   .stats{
     display:grid; grid-template-columns:repeat(4,1fr);
@@ -205,6 +228,61 @@
   }
   .card h3{ font-family:'Poppins',sans-serif; font-size:16.5px; font-weight:600; color:#fff; margin-bottom:8px; }
   .card p{ color:var(--muted); font-size:13.5px; line-height:1.55; }
+  .card .tag-new{
+    display:inline-block; font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--orange); background:rgba(242,135,31,.14); border:1px solid rgba(242,135,31,.4);
+    padding:2px 8px; border-radius:999px; margin-bottom:10px;
+  }
+
+  /* ---------- SPLIT PANELS (app mobile, banca, soci, inventario) ---------- */
+  .split{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .panel{
+    background:var(--paper); border:1px solid var(--line); border-radius:20px; padding:32px 30px;
+    position:relative; overflow:hidden;
+  }
+  .panel.glow-b::before, .panel.glow-o::before, .panel.glow-m::before{
+    content:""; position:absolute; inset:0; pointer-events:none;
+  }
+  .panel.glow-b::before{ background:radial-gradient(circle at 100% 0%, rgba(47,134,201,.16), transparent 55%); }
+  .panel.glow-o::before{ background:radial-gradient(circle at 100% 0%, rgba(242,135,31,.15), transparent 55%); }
+  .panel.glow-m::before{ background:radial-gradient(circle at 100% 0%, rgba(184,57,158,.16), transparent 55%); }
+  .panel > *{ position:relative; }
+  .panel .p-icon{
+    width:46px; height:46px; border-radius:13px; margin-bottom:18px;
+    display:flex; align-items:center; justify-content:center; font-size:21px;
+  }
+  .panel h3{ font-family:'Poppins',sans-serif; font-size:20px; font-weight:700; color:#fff; margin-bottom:8px; }
+  .panel > p{ color:var(--muted); font-size:14.5px; }
+  .panel .role-list{ margin-top:14px; }
+  .panel .role-list li{ font-size:14px; }
+
+  .app-block{
+    margin-top:26px;
+    background:var(--paper); border:1px solid var(--line); border-radius:20px; padding:30px;
+    display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap;
+  }
+  .app-block .app-text{ max-width:520px; }
+  .app-block h3{ font-family:'Poppins',sans-serif; font-size:19px; color:#fff; margin-bottom:6px; }
+  .app-block p{ color:var(--muted); font-size:14px; }
+  .status-pill{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    color:#e7a6d6; background:rgba(184,57,158,.12); border:1px solid rgba(184,57,158,.4);
+    padding:4px 12px; border-radius:999px; margin-bottom:12px;
+  }
+
+  .bank-flow{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:26px;
+  }
+  .bank-step{
+    background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:20px 18px;
+  }
+  .bank-step .bn{
+    font-family:'Poppins',sans-serif; font-weight:700; font-size:13px; color:var(--orange);
+    margin-bottom:10px; display:flex; align-items:center; gap:8px;
+  }
+  .bank-step h4{ font-family:'Poppins',sans-serif; font-size:15px; color:#fff; margin-bottom:6px; font-weight:600; }
+  .bank-step p{ font-size:13px; color:var(--muted); line-height:1.5; }
 
 /* Role bands */
   .role-band{
@@ -423,11 +501,16 @@
   footer p.lede2{ color:var(--muted); max-width:480px; margin:0 auto; }
   footer p.note{ color:#6f6f8c; font-size:12.5px; margin-top:30px; max-width:520px; margin-left:auto; margin-right:auto;}
 
+  @media (max-width:960px){
+    .grid{ grid-template-columns:repeat(2,1fr); }
+    .bank-flow{ grid-template-columns:repeat(2,1fr); }
+  }
   @media (max-width:820px){
     header.hero{ grid-template-columns:1fr; }
     .hero-art{ order:-1; }
     .stats{ grid-template-columns:repeat(2,1fr); border-radius:16px; }
     .grid{ grid-template-columns:repeat(2,1fr); }
+    .split{ grid-template-columns:1fr; }
     .role-band{ grid-template-columns:1fr; }
     .flow{ flex-direction:column; }
     .flow .step .n::after{ display:none; }
@@ -438,11 +521,29 @@
   }
   @media (max-width:480px){
     .pricing-grid{ grid-template-columns:1fr; }
+    .grid{ grid-template-columns:1fr; }
+    .bank-flow{ grid-template-columns:1fr; }
     .modal{ padding:28px 20px; }
+    .panel{ padding:26px 22px; }
   }
 </style>
 </head>
 <body>
+
+<!-- SIMBOLI SVG RIUTILIZZABILI (loghi store) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="logo-apple" viewBox="0 0 24 24">
+      <path fill="#fff" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>
+    </symbol>
+    <symbol id="logo-play" viewBox="0 0 24 24">
+      <path fill="#2f86c9" d="M3.6 2.2 13.4 12 3.6 21.8C3.4 21.6 3.3 21.3 3.3 21V3c0-.3.1-.6.3-.8z"/>
+      <path fill="#2fb36b" d="M3.6 2.2 16.2 9.2 13.4 12z"/>
+      <path fill="#f6c21f" d="M16.2 9.2 20.2 11.4c.5.3.5.9 0 1.2l-4 2.2L13.4 12z"/>
+      <path fill="#e8473f" d="M3.6 21.8 13.4 12l2.8 2.8z"/>
+    </symbol>
+  </defs>
+</svg>
 
 <!-- MODALE -->
 <div class="modal-overlay" id="contactModal">
@@ -524,10 +625,26 @@
     <div>
       <span class="eyebrow"><span class="dot m"></span> Gestionale per scuole di musica</span>
       <h1 class="title">Tutta la scuola, <span class="grad-text">a tempo.</span></h1>
-      <p class="lede">PentamiX unisce calendario, registro lezioni, tariffe, pagamenti e comunicazioni in un'unica piattaforma cloud, pensata sul lavoro quotidiano di segreteria, docenti e famiglie.</p>
+      <p class="lede">PentamiX unisce calendario, registro lezioni, tariffe, pagamenti con import dall'home banking, comunicazioni, Libro Soci e Inventario in un'unica piattaforma cloud, con app mobile per docenti e famiglie. Pensata sul lavoro quotidiano di direzione, segreteria, docenti e famiglie.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="#contactModal" onclick="openModal();return false;">Richiedi una demo</a>
         <a class="btn btn-ghost" href="#funzioni">Scopri le funzionalità</a>
+      </div>
+
+      <!-- APP MOBILE (hero) -->
+      <div class="hero-apps">
+        <div class="hero-apps-label"><span class="dot o"></span> App mobile per docenti e famiglie</div>
+        <div class="store-row">
+          <div class="store-badge" role="img" aria-label="App Store - app iOS in arrivo">
+            <svg><use href="#logo-apple"/></svg>
+            <span class="st-txt"><small>Scarica su</small><strong>App Store</strong></span>
+          </div>
+          <div class="store-badge" role="img" aria-label="Google Play - app Android in arrivo">
+            <svg><use href="#logo-play"/></svg>
+            <span class="st-txt"><small>Disponibile su</small><strong>Google Play</strong></span>
+          </div>
+        </div>
+        <div class="store-soon"><span class="dot m"></span> App in fase di test: disponibilità sugli store in arrivo</div>
       </div>
 
       <!-- INIZIO NUOVA SEZIONE DEMO -->
@@ -547,7 +664,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
         <div class="demo-note">
-          * L'ambiente è condiviso e i dati inseriti vengono ripristinati automaticamente ogni ora.
+          * L'ambiente DEMO è condiviso e i dati inseriti vengono ripristinati automaticamente ogni ora.
         </div>
       </div>
       <!-- FINE NUOVA SEZIONE DEMO -->
@@ -565,12 +682,12 @@
       <div class="lab">Profili operativi: segreteria, docenti, famiglie</div>
     </div>
     <div class="stat">
-      <div class="num">100%</div>
-      <div class="lab">Cloud, accessibile da ogni dispositivo</div>
+      <div class="num">Web + App</div>
+      <div class="lab">Cloud da ogni dispositivo, con app iOS e Android</div>
     </div>
     <div class="stat">
       <div class="num">Auto</div>
-      <div class="lab">Calcolo tariffe, sconti e pacchetti</div>
+      <div class="lab">Calcolo tariffe, sconti, pacchetti e riconciliazione pagamenti</div>
     </div>
     <div class="stat">
       <div class="num">PDF · XLS</div>
@@ -626,6 +743,147 @@
         <h3>Comunicazioni automatiche</h3>
         <p>Promemoria email periodici ai docenti sulle lezioni da recuperare, senza bisogno di ricordarsene.</p>
       </div>
+      <div class="card">
+        <span class="tag-new">Novità</span>
+        <div class="icon-badge" style="background:rgba(47,134,201,.16); color:var(--blue);">📱</div>
+        <h3>App mobile iOS e Android</h3>
+        <p>App dedicate a docenti e alunni/famiglie, per avere calendario, lezioni e situazione contabile sempre in tasca.</p>
+      </div>
+      <div class="card">
+        <span class="tag-new">Novità</span>
+        <div class="icon-badge" style="background:rgba(242,135,31,.16); color:var(--orange);">🏦</div>
+        <h3>Import pagamenti da home banking</h3>
+        <p>Carica il file scaricato dalla tua banca: i movimenti vengono letti e abbinati in automatico ai pagamenti degli alunni.</p>
+      </div>
+      <div class="card">
+        <span class="tag-new">Novità</span>
+        <div class="icon-badge" style="background:rgba(184,57,158,.16); color:var(--magenta);">📖</div>
+        <h3>Libro Soci</h3>
+        <p>Registro dei soci sempre aggiornato, con anagrafiche, date di iscrizione e quote associative.</p>
+      </div>
+      <div class="card">
+        <span class="tag-new">Novità</span>
+        <div class="icon-badge" style="background:rgba(184,57,158,.16); color:var(--magenta);">🎻</div>
+        <h3>Inventario strumenti e beni</h3>
+        <p>Strumenti musicali, attrezzature e beni della scuola catalogati, con stato e ubicazione.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP MOBILE -->
+  <section id="app">
+    <div class="section-head">
+      <span class="kicker"><span class="dot b"></span> App mobile</span>
+      <h2>PentamiX nel tuo smartphone, su iOS e Android</h2>
+      <p>Le nuove app mobile portano la scuola dove servono: tra una lezione e l'altra per i docenti, a portata di mano per alunni e famiglie.</p>
+    </div>
+
+    <div class="split">
+      <div class="panel glow-o">
+        <div class="p-icon" style="background:rgba(242,135,31,.16); color:var(--orange);">🎼</div>
+        <h3>App Docenti</h3>
+        <p>Tutto il lavoro quotidiano dell'insegnante, direttamente dal telefono.</p>
+        <ul class="role-list">
+          <li><span class="dot o"></span><b>Calendario personale</b> con lezioni individuali e di gruppo</li>
+          <li><span class="dot o"></span>Registrazione di <b>presenze e assenze</b> subito dopo la lezione</li>
+          <li><span class="dot o"></span>Consultazione di lezioni <b>svolte e da recuperare</b></li>
+        </ul>
+      </div>
+      <div class="panel glow-m">
+        <div class="p-icon" style="background:rgba(184,57,158,.16); color:var(--magenta);">👨‍👩‍👧</div>
+        <h3>App Alunni e Famiglie</h3>
+        <p>Per le famiglie, un accesso semplice e sempre disponibile alla vita della scuola.</p>
+        <ul class="role-list">
+          <li><span class="dot m"></span><b>Prossime lezioni</b> in programma sempre visibili</li>
+          <li><span class="dot m"></span>Consultazione di <b>saldo e situazione contabile</b></li>
+          <li><span class="dot m"></span>Caricamento di <b>documenti e liberatorie</b> da mobile</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="app-block">
+      <div class="app-text">
+        <span class="status-pill"><span class="dot m"></span> In fase di test</span>
+        <h3>Presto sugli store ufficiali</h3>
+        <p>Le app per iOS e Android sono in fase di sviluppo e test. Richiedi una demo per essere aggiornato sulla disponibilità e sul lancio.</p>
+      </div>
+      <div>
+        <div class="store-row">
+          <div class="store-badge" role="img" aria-label="App Store - app iOS in arrivo">
+            <svg><use href="#logo-apple"/></svg>
+            <span class="st-txt"><small>Scarica su</small><strong>App Store</strong></span>
+          </div>
+          <div class="store-badge" role="img" aria-label="Google Play - app Android in arrivo">
+            <svg><use href="#logo-play"/></svg>
+            <span class="st-txt"><small>Disponibile su</small><strong>Google Play</strong></span>
+          </div>
+        </div>
+        <div class="store-soon"><span class="dot m"></span> Disponibilità sugli store in arrivo</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPORT PAGAMENTI HOME BANKING -->
+  <section id="banca">
+    <div class="section-head">
+      <span class="kicker"><span class="dot o"></span> Pagamenti</span>
+      <h2>Import automatico dei pagamenti dall'home banking</h2>
+      <p>Niente più registrazioni a mano di ogni bonifico: scarica il file dei movimenti dalla tua banca, caricalo in PentamiX e lascia che sia il gestionale ad abbinare i pagamenti agli alunni.</p>
+    </div>
+
+    <div class="bank-flow">
+      <div class="bank-step">
+        <div class="bn"><span class="dot b"></span> 01</div>
+        <h4>Scarica il file</h4>
+        <p>Esporta i movimenti del conto dall'home banking della tua banca.</p>
+      </div>
+      <div class="bank-step">
+        <div class="bn"><span class="dot b"></span> 02</div>
+        <h4>Carica in PentamiX</h4>
+        <p>La segreteria importa il file direttamente dal gestionale.</p>
+      </div>
+      <div class="bank-step">
+        <div class="bn"><span class="dot o"></span> 03</div>
+        <h4>Abbinamento automatico</h4>
+        <p>I movimenti vengono associati ai pagamenti degli alunni, da verificare prima della conferma.</p>
+      </div>
+      <div class="bank-step">
+        <div class="bn"><span class="dot m"></span> 04</div>
+        <h4>Ricevute e saldi</h4>
+        <p>Situazione dovuto/pagato aggiornata e ricevute PDF generate in automatico.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIBRO SOCI E INVENTARIO -->
+  <section id="soci-inventario">
+    <div class="section-head">
+      <span class="kicker"><span class="dot m"></span> Gestione associativa e patrimonio</span>
+      <h2>Libro Soci e Inventario, nello stesso gestionale</h2>
+      <p>Oltre alla didattica, PentamiX tiene in ordine anche i soci e i beni della scuola, senza fogli di calcolo sparsi.</p>
+    </div>
+
+    <div class="split">
+      <div class="panel glow-m">
+        <div class="p-icon" style="background:rgba(184,57,158,.16); color:var(--magenta);">📖</div>
+        <h3>Libro Soci</h3>
+        <p>Il registro dei soci della tua associazione, sempre consultabile e aggiornato.</p>
+        <ul class="role-list">
+          <li><span class="dot m"></span><b>Anagrafica soci</b> con dati di contatto e data di iscrizione</li>
+          <li><span class="dot m"></span>Gestione delle <b>quote associative</b> e dello stato di tesseramento</li>
+          <li><span class="dot m"></span><b>Elenco sempre aggiornato</b>, pronto da consultare ed esportare</li>
+        </ul>
+      </div>
+      <div class="panel glow-o">
+        <div class="p-icon" style="background:rgba(242,135,31,.16); color:var(--orange);">🎻</div>
+        <h3>Inventario</h3>
+        <p>Strumenti musicali, attrezzature e beni della scuola, tutti sotto controllo.</p>
+        <ul class="role-list">
+          <li><span class="dot o"></span><b>Catalogo di strumenti e beni</b> con categoria e descrizione</li>
+          <li><span class="dot o"></span>Stato di conservazione e <b>ubicazione</b> di ogni bene</li>
+          <li><span class="dot o"></span>Panoramica del <b>patrimonio</b> della scuola in un colpo d'occhio</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -634,7 +892,7 @@
     <div class="section-head">
       <span class="kicker"><span class="dot b"></span> Piani e prezzi</span>
       <h2>Scegli il piano per la tua scuola</h2>
-      <p>Abbonamento annuale, rinnovato automaticamente. Tutti i piani includono tutte le funzionalità.</p>
+      <p>Abbonamento annuale. Tutti i piani includono tutte le funzionalità.</p>
     </div>
     <div class="pricing-grid">
       <div class="pricing-card">
@@ -642,9 +900,12 @@
         <div class="plan-price">399€ <small>/anno</small></div>
         <ul class="plan-features">
           <li>Tutte le funzionalità</li>
+          <li>App mobile iOS e Android</li>
           <li>Supporto dedicato</li>
           <li>Aggiornamenti inclusi</li>
           <li>Area famiglie</li>
+          <li>Import pagamenti da banca</li>
+          <li>Libro Soci e Inventario</li>
           <li>Export contabile</li>
           <li>Formazione inclusa</li>
         </ul>
@@ -655,9 +916,12 @@
         <div class="plan-price">599€ <small>/anno</small></div>
         <ul class="plan-features">
           <li>Tutte le funzionalità</li>
+          <li>App mobile iOS e Android</li>
           <li>Supporto dedicato</li>
           <li>Aggiornamenti inclusi</li>
           <li>Area famiglie</li>
+          <li>Import pagamenti da banca</li>
+          <li>Libro Soci e Inventario</li>
           <li>Export contabile</li>
           <li>Formazione inclusa</li>
         </ul>
@@ -668,9 +932,12 @@
         <div class="plan-price">799€ <small>/anno</small></div>
         <ul class="plan-features">
           <li>Tutte le funzionalità</li>
+          <li>App mobile iOS e Android</li>
           <li>Supporto dedicato</li>
           <li>Aggiornamenti inclusi</li>
           <li>Area famiglie</li>
+          <li>Import pagamenti da banca</li>
+          <li>Libro Soci e Inventario</li>
           <li>Export contabile</li>
           <li>Formazione inclusa</li>
         </ul>
@@ -681,9 +948,12 @@
         <div class="plan-price">999€ <small>/anno</small></div>
         <ul class="plan-features">
           <li>Tutte le funzionalità</li>
+          <li>App mobile iOS e Android</li>
           <li>Supporto dedicato</li>
           <li>Aggiornamenti inclusi</li>
           <li>Area famiglie</li>
+          <li>Import pagamenti da banca</li>
+          <li>Libro Soci e Inventario</li>
           <li>Export contabile</li>
           <li>Formazione inclusa</li>
         </ul>
@@ -708,7 +978,9 @@
         <ul class="role-list">
           <li><span class="dot b"></span><b>Anagrafiche</b> alunni e docenti sempre aggiornate, con documenti allegati</li>
           <li><span class="dot b"></span><b>Registrazione pagamenti</b> e generazione automatica delle ricevute</li>
+          <li><span class="dot b"></span><b>Import dei movimenti</b> dal file dell'home banking</li>
           <li><span class="dot b"></span>Pianificazione e modifica del <b>calendario lezioni</b> per tutti i docenti</li>
+          <li><span class="dot b"></span>Gestione di <b>Libro Soci</b> e <b>Inventario</b> di strumenti e beni</li>
           <li><span class="dot b"></span>Attivazione degli <b>accessi al portale</b> per le famiglie</li>
         </ul>
         <!-- Spazio per lo screenshot Segreteria (lascia un div vuoto per mantenere la struttura a griglia) -->
@@ -724,6 +996,7 @@
           <li><span class="dot o"></span>Registrazione rapida di <b>presenze e assenze</b> dopo ogni lezione</li>
           <li><span class="dot o"></span>Statistiche immediate su lezioni <b>svolte e da recuperare</b></li>
           <li><span class="dot o"></span>Stampa dell'<b>orario settimanale</b> in PDF</li>
+          <li><span class="dot o"></span><b>App mobile iOS e Android</b> per lavorare anche dal telefono</li>
         </ul>
         <!-- Spazio per lo screenshot Docenti -->
         <div class="role-img-wrapper">
@@ -738,6 +1011,7 @@
           <li><span class="dot m"></span><b>Prossime lezioni</b> in programma sempre visibili</li>
           <li><span class="dot m"></span>Caricamento di <b>scheda di iscrizione e liberatorie</b> da mobile</li>
           <li><span class="dot m"></span>Avvisi automatici sui <b>documenti mancanti</b></li>
+          <li><span class="dot m"></span><b>App mobile iOS e Android</b> dedicata ad alunni e famiglie</li>
         </ul>
         <!-- Screenshot Alunni Attivo -->
         <div class="role-img-wrapper">
@@ -753,11 +1027,11 @@
       <h2>Dall'iscrizione al bilancio, in un unico flusso</h2>
     </div>
     <div class="flow">
-      <div class="step"><div class="n"></div><h4>Iscrizione</h4><p>La segreteria registra l'alunno e attiva l'accesso al portale famiglie.</p></div>
+      <div class="step"><div class="n"></div><h4>Iscrizione</h4><p>La segreteria registra l'alunno e attiva l'accesso al portale e all'app famiglie.</p></div>
       <div class="step"><div class="n"></div><h4>Pianificazione</h4><p>Docente o segreteria pianificano le lezioni, anche ricorrenti.</p></div>
-      <div class="step"><div class="n"></div><h4>Svolgimento</h4><p>Ogni lezione viene registrata con il suo stato reale.</p></div>
+      <div class="step"><div class="n"></div><h4>Svolgimento</h4><p>Ogni lezione viene registrata con il suo stato reale, anche da app.</p></div>
       <div class="step"><div class="n"></div><h4>Tariffazione</h4><p>Il sistema calcola dovuto, sconti e pacchetti in automatico.</p></div>
-      <div class="step"><div class="n"></div><h4>Incasso</h4><p>La segreteria registra il pagamento e genera la ricevuta.</p></div>
+      <div class="step"><div class="n"></div><h4>Incasso</h4><p>Pagamenti registrati o importati dal file della banca, con ricevuta generata.</p></div>
       <div class="step"><div class="n"></div><h4>Bilancio</h4><p>Report sempre aggiornati, pronti per il commercialista.</p></div>
     </div>
   </section>
